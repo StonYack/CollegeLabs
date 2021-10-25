@@ -1,0 +1,10 @@
+12:04:12 **** Incremental Build of configuration Nios II for project TermProject_SW ****
+wsl make all 
+touch TermProject_SW.elf.srec
+Info: Building /mnt/d/College/CST455/ProjectV2/software/TermProject_SW_bsp/
+make --no-print-directory -C /mnt/d/College/CST455/ProjectV2/software/TermProject_SW_bsp/
+[BSP build complete]
+[TermProject_SW build complete]
+
+12:04:13 Build Finished (took 665ms)
+

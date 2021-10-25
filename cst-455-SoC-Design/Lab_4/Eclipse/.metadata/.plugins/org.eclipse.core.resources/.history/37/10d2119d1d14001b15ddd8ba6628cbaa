@@ -1,0 +1,176 @@
+#include "sys/alt_stdio.h"
+#include "system.h"
+#include <io.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#include "FreeRTOS.h"
+#include "task.h"
+#include "string.h"
+
+
+void task1(void *p);
+void task2(void *p);
+
+void blink();
+void cylon();
+void NewPattern();
+
+/* You will add PIO cores to handle the push buttons and the LEDs.
+ Each button will cause a different pattern to be displayed. You
+ will write a task to poll the buttons and send a message to an LED task. The
+ LED task is responsible for producing the pattern on the LEDs. Use vTaskDelay();
+ for the timing. You should end up with two tasks and a queue to send messages from
+ one to the other. The patterns will include cylon, up counter, blink, and one of your choice. */
+
+int main()
+{
+	// Thread tasks
+	xTaskCreate(task1, "task1", 512, NULL, 2, NULL);
+	xTaskCreate(task2, "task2", 512, NULL, 2, NULL);
+
+	//Start the tasks
+	vTaskStartScheduler();
+
+  return 0;
+}
+
+void task1(void *p)
+{
+	int BUT = 0;
+	int counter = 0;
+	//char message = "n";
+
+	while(1)
+	{
+		while(1)
+			{
+				BUT = IORD(KEYS_BASE, 0);	// takes the buttons data
+
+				// decides what to do with the LED's based on button input
+				switch(BUT)
+				{
+					case 14:
+						blink();
+						counter = 0;
+						break;
+					case 13:
+						cylon();
+						counter = 0;
+						IOWR(LEDS_BASE, 0, 0);
+						break;
+					case 11:
+						counter += 1;
+						IOWR(LEDS_BASE, 0, counter);
+						vTaskDelay(250);
+						break;
+					case 7:
+						NewPattern();
+						counter = 0;
+						IOWR(LEDS_BASE, 0, 0);
+						break;
+				}
+			}
+
+
+	}
+
+}
+
+
+void task2(void *p)
+{
+	//char message = "n";
+	while(1)
+	{
+
+	}
+}
+
+void blink()
+{
+	while((IORD(KEYS_BASE, 0) == 14)| (IORD(KEYS_BASE, 0) == 15))
+	{
+		IOWR(LEDS_BASE, 0, 0x3FF);
+		vTaskDelay(1000);
+		IOWR(LEDS_BASE, 0, 0x000);
+		vTaskDelay(1000);
+	}
+}
+
+//Creates the Cylon pattern on LED's
+void cylon()
+{
+	//Initialization
+	int cur = 0;
+	int max = 0b10000000000;
+	int min = 0;
+
+	// stays in loop while either KEY1 is pressed or nothing is pressed
+	while((IORD(KEYS_BASE, 0) == 13) | (IORD(KEYS_BASE, 0) == 15))
+	{
+		cur = 1;
+		// Stay in loop while current doesnt equal max and Key1 is pressed or nothing is pressed
+		while((cur != max) & ((IORD(KEYS_BASE, 0) == 13) | (IORD(KEYS_BASE, 0) == 15)))
+		{
+			IOWR(LEDS_BASE, 0, cur);	// write current
+			cur = cur << 1;	// shift left to perform pattern
+			vTaskDelay(50);	// Don't make the LED's go too zoomy
+
+		}
+		// Stay in loop while current doesnt equal minimum and Key1 is pressed or nothing is pressed
+		while((cur != min) & ((IORD(KEYS_BASE, 0) == 13) | (IORD(KEYS_BASE, 0) == 15)))
+		{
+			cur = cur >> 1; // shift right to perform pattern
+			IOWR(LEDS_BASE, 0, cur); // write current
+			vTaskDelay(50); // Don't make the LED's go too zoomy
+		}
+	}
+}
+
+/* Creates a different pattern for the LED's
+			LED:			1000000001
+							1100000011
+							1110000111
+							1111001111
+							1111111111
+							1111001111
+							1110000111
+							1100000011
+							1000000001
+							1100000011...
+*/
+void NewPattern()
+{
+	//initialization
+	int cur = 0;
+	int sec1 = 0;
+	int sec2 = 0;
+
+	// stays in loop while either KEY3 is pressed or nothing is pressed
+	while((IORD(KEYS_BASE, 0) == 7) | (IORD(KEYS_BASE, 0) == 15))
+	{
+		// Set up start of pattern
+		sec1 = 0b1000000000;
+		sec2 = 0b00001;
+		cur = sec1 + sec2;
+		// Stay in loop while section 2 isn't greater than 16 and Key1 is pressed or nothing is pressed
+		while((sec2 < 16) & ((IORD(KEYS_BASE, 0) == 7) | (IORD(KEYS_BASE, 0) == 15)))
+		{
+			IOWR(LEDS_BASE, 0, cur);	// writes current data
+			sec1 = (sec1 >> 1) + 512;	// Sets up section 1 of the pattern
+			sec2 = (sec2 << 1) + 1;		// Sets up section 2 of the pattern
+			cur = sec1 + sec2;			// Form output data
+			vTaskDelay(50);				// Don't make the LED's go too zoomy
+		}
+		// Stay in loop while until section 2 equals 0 and Key1 is pressed or nothing is pressed
+		while((sec2 >= 0) & ((IORD(KEYS_BASE, 0) == 7) | (IORD(KEYS_BASE, 0) == 15)))
+		{
+			IOWR(LEDS_BASE, 0, cur);	// writes current data
+			sec1 = (sec1 << 1) - 1024;	// Sets up section 1 of the pattern
+			sec2 = (sec2 - 1) >> 1 ;	// Sets up section 2 of the pattern
+			cur = sec1 + sec2;			// Form output data
+			vTaskDelay(50);				// Don't make the LED's go too zoomy
+		}
+	}
+}

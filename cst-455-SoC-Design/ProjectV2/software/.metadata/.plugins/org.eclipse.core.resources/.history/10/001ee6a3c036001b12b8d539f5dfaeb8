@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+#define HW_REGS_BASE (ALT_STM_OFST)
+#define HW_REGS_SPAN (0x04000000)
+#define HW_REGS_MASK (HW_REGS_SPAN - 1)
+
+int Search(FILE *file, char Braille);
+
+void Control()
+{
+	int iteration = 0;
+
+	while(iteration < 4)
+	{
+		printf("Enter one character: ");
+		scanf(" %c", &Braille);	// Grab character to be Translated
+		
+		//Access file for translation
+		if((Database = fopen("Database.txt", "r")) == NULL) 
+		{
+			printf("ERROR: Could not open database");
+			return(1);
+		}
+
+		//Search file for translation
+		Translate = Search(Database, tolower(Braille));
+
+		// close file
+		fclose(Database);
+
+		if (Translate == 0)
+		{
+			printf("ERROR: Invalid input");
+		}
+		else
+		{
+			printf("%d is the character \n", Translate);
+		}
+		iteration++;
+	}  // while		
+	return 0;
+}
+
+int Search(FILE *file, char Braille)
+{
+	char temp[256];
+	int result = 0;
+
+	while (fgets(temp, 256, file) != NULL)
+	{
+		if (temp[0] == Braille)
+		{
+			for (int i = 0; temp[i] != NULL; i++)
+			{
+				if ((temp[i] == '0') || (temp[i] == '1'))
+				{
+					result <<= 1;
+					if (temp[i] == '1')
+					{
+						result += 1;
+					}
+				}
+			}
+
+		}
+	}
+	return result;
+}

@@ -1,0 +1,7 @@
+17:37:27 **** Clean-only build of configuration Nios II for project MidtermSW ****
+wsl make clean 
+wslpath: /mnt/d/College/CST455/Midterm/software/MidtermSW_bsp//obj/HAL/src/crt0.o: No such file or directory
+[MidtermSW clean complete]
+
+17:37:28 Build Finished (took 521ms)
+

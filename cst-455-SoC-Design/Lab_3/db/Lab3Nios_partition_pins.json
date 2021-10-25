@@ -1,0 +1,137 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "hex_export[0]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[1]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[2]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[3]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[4]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[5]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[6]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[7]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[8]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[9]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[10]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[11]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[12]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[13]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[14]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[15]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[16]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[17]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[18]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[19]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_export[20]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_clk",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[0]",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[8]",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[1]",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[9]",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[2]",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[3]",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[4]",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[5]",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[6]",
+					"strict" : false
+				},
+				{
+					"name" : "switches_export[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

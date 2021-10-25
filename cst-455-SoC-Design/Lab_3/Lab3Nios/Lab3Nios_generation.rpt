@@ -1,0 +1,118 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate D:\College\CST455\Lab_3\Lab3Nios.qsys --block-symbol-file --output-directory=D:\College\CST455\Lab_3\Lab3Nios --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading Lab_3/Lab3Nios.qsys
+Progress: Reading input file
+Progress: Adding Hex [altera_avalon_pio 20.1]
+Progress: Parameterizing module Hex
+Progress: Adding Lab3Nios [altera_nios2_gen2 20.1]
+Progress: Parameterizing module Lab3Nios
+Progress: Adding Memory [altera_avalon_onchip_memory2 20.1]
+Progress: Parameterizing module Memory
+Progress: Adding Switches [altera_avalon_pio 20.1]
+Progress: Parameterizing module Switches
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 20.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: Lab3Nios.Switches: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Lab3Nios.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate D:\College\CST455\Lab_3\Lab3Nios.qsys --synthesis=VERILOG --output-directory=D:\College\CST455\Lab_3\Lab3Nios\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading Lab_3/Lab3Nios.qsys
+Progress: Reading input file
+Progress: Adding Hex [altera_avalon_pio 20.1]
+Progress: Parameterizing module Hex
+Progress: Adding Lab3Nios [altera_nios2_gen2 20.1]
+Progress: Parameterizing module Lab3Nios
+Progress: Adding Memory [altera_avalon_onchip_memory2 20.1]
+Progress: Parameterizing module Memory
+Progress: Adding Switches [altera_avalon_pio 20.1]
+Progress: Parameterizing module Switches
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 20.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: Lab3Nios.Switches: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Lab3Nios.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: Lab3Nios: Generating Lab3Nios "Lab3Nios" for QUARTUS_SYNTH
+Info: Hex: Starting RTL generation for module 'Lab3Nios_Hex'
+Info: Hex:   Generation command is [exec D:/college/quartus/lite/quartus/bin64/perl/bin/perl.exe -I D:/college/quartus/lite/quartus/bin64/perl/lib -I D:/college/quartus/lite/quartus/sopc_builder/bin/europa -I D:/college/quartus/lite/quartus/sopc_builder/bin -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/common -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Lab3Nios_Hex --dir=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0002_Hex_gen/ --quartus_dir=D:/college/quartus/lite/quartus --verilog --config=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0002_Hex_gen//Lab3Nios_Hex_component_configuration.pl  --do_build_sim=0  ]
+Info: Hex: Done RTL generation for module 'Lab3Nios_Hex'
+Info: Hex: "Lab3Nios" instantiated altera_avalon_pio "Hex"
+Info: Lab3Nios: "Lab3Nios" instantiated altera_nios2_gen2 "Lab3Nios"
+Info: Memory: Starting RTL generation for module 'Lab3Nios_Memory'
+Info: Memory:   Generation command is [exec D:/college/quartus/lite/quartus/bin64/perl/bin/perl.exe -I D:/college/quartus/lite/quartus/bin64/perl/lib -I D:/college/quartus/lite/quartus/sopc_builder/bin/europa -I D:/college/quartus/lite/quartus/sopc_builder/bin -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/common -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Lab3Nios_Memory --dir=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0003_Memory_gen/ --quartus_dir=D:/college/quartus/lite/quartus --verilog --config=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0003_Memory_gen//Lab3Nios_Memory_component_configuration.pl  --do_build_sim=0  ]
+Info: Memory: Done RTL generation for module 'Lab3Nios_Memory'
+Info: Memory: "Lab3Nios" instantiated altera_avalon_onchip_memory2 "Memory"
+Info: Switches: Starting RTL generation for module 'Lab3Nios_Switches'
+Info: Switches:   Generation command is [exec D:/college/quartus/lite/quartus/bin64/perl/bin/perl.exe -I D:/college/quartus/lite/quartus/bin64/perl/lib -I D:/college/quartus/lite/quartus/sopc_builder/bin/europa -I D:/college/quartus/lite/quartus/sopc_builder/bin -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/common -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Lab3Nios_Switches --dir=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0004_Switches_gen/ --quartus_dir=D:/college/quartus/lite/quartus --verilog --config=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0004_Switches_gen//Lab3Nios_Switches_component_configuration.pl  --do_build_sim=0  ]
+Info: Switches: Done RTL generation for module 'Lab3Nios_Switches'
+Info: Switches: "Lab3Nios" instantiated altera_avalon_pio "Switches"
+Info: jtag_uart_0: Starting RTL generation for module 'Lab3Nios_jtag_uart_0'
+Info: jtag_uart_0:   Generation command is [exec D:/college/quartus/lite/quartus/bin64/perl/bin/perl.exe -I D:/college/quartus/lite/quartus/bin64/perl/lib -I D:/college/quartus/lite/quartus/sopc_builder/bin/europa -I D:/college/quartus/lite/quartus/sopc_builder/bin -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/common -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=Lab3Nios_jtag_uart_0 --dir=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0005_jtag_uart_0_gen/ --quartus_dir=D:/college/quartus/lite/quartus --verilog --config=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0005_jtag_uart_0_gen//Lab3Nios_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart_0: Done RTL generation for module 'Lab3Nios_jtag_uart_0'
+Info: jtag_uart_0: "Lab3Nios" instantiated altera_avalon_jtag_uart "jtag_uart_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "Lab3Nios" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "Lab3Nios" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "Lab3Nios" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'Lab3Nios_Lab3Nios_cpu'
+Info: cpu:   Generation command is [exec D:/College/Quartus/Lite/quartus/bin64//perl/bin/perl.exe -I D:/College/Quartus/Lite/quartus/bin64//perl/lib -I D:/college/quartus/lite/quartus/sopc_builder/bin/europa -I D:/college/quartus/lite/quartus/sopc_builder/bin -I D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=Lab3Nios_Lab3Nios_cpu --dir=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0008_cpu_gen/ --quartus_bindir=D:/College/Quartus/Lite/quartus/bin64/ --verilog --config=C:/Users/Ston/AppData/Local/Temp/alt8549_43521638645844847.dir/0008_cpu_gen//Lab3Nios_Lab3Nios_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2020.10.14 13:57:00 (*) Starting Nios II generation
+Info: cpu: # 2020.10.14 13:57:00 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2020.10.14 13:57:00 (*)   Creating all objects for CPU
+Info: cpu: # 2020.10.14 13:57:00 (*)     Testbench
+Info: cpu: # 2020.10.14 13:57:00 (*)     Instruction decoding
+Info: cpu: # 2020.10.14 13:57:00 (*)       Instruction fields
+Info: cpu: # 2020.10.14 13:57:00 (*)       Instruction decodes
+Info: cpu: # 2020.10.14 13:57:00 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2020.10.14 13:57:01 (*)       Instruction controls
+Info: cpu: # 2020.10.14 13:57:01 (*)     Pipeline frontend
+Info: cpu: # 2020.10.14 13:57:01 (*)     Pipeline backend
+Info: cpu: # 2020.10.14 13:57:03 (*)   Generating RTL from CPU objects
+Info: cpu: # 2020.10.14 13:57:03 (*)   Creating plain-text RTL
+Info: cpu: # 2020.10.14 13:57:05 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'Lab3Nios_Lab3Nios_cpu'
+Info: cpu: "Lab3Nios" instantiated altera_nios2_gen2_unit "cpu"
+Info: Lab3Nios_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "Lab3Nios_data_master_translator"
+Info: jtag_uart_0_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_0_avalon_jtag_slave_translator"
+Info: Lab3Nios_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "Lab3Nios_data_master_agent"
+Info: jtag_uart_0_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_0_avalon_jtag_slave_agent"
+Info: jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: Lab3Nios_data_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "Lab3Nios_data_master_limiter"
+Info: Reusing file D:/College/CST455/Lab_3/Lab3Nios/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file D:/College/CST455/Lab_3/Lab3Nios/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file D:/College/CST455/Lab_3/Lab3Nios/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file D:/College/CST455/Lab_3/Lab3Nios/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: Lab3Nios: Done "Lab3Nios" with 30 modules, 51 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

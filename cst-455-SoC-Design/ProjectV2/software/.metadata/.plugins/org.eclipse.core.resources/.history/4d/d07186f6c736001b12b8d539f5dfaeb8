@@ -1,0 +1,139 @@
+#include <io.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+#include "sys/alt_irq.h"
+#include "system.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "sys/alt_stdio.h"
+
+
+void task1(void *p);
+void task2(void *p);
+
+int Switch();
+void HexDecode(char decode);
+int TranslateDecode(char decode);
+
+char Display = 'X';
+
+int main()
+{
+  xTaskCreate(task1, "task1", 512, NULL, 2, NULL);
+  //xTaskCreate(task2, "task2", 512, NULL, 2, NULL);
+  vTaskStartScheduler();
+
+  return 0;
+}
+
+void task1(void *p)
+{
+	int Translate = 0;
+	while(1)
+	{
+		Translate = Switch();
+		printf("%d\n", Translate);
+		vTaskDelay(5000);
+	}
+}
+
+int Switch()
+{
+	int SW = IORD(SW_0_BASE, 0);
+	char Character;
+	int Result;
+
+	switch(SW)
+	{
+		case 0:
+			Character = 'A';
+			break;
+		case 1:
+			Character = 'B';
+			break;
+		case 2:
+			Character = 'C';
+			break;
+		case 3:
+			Character = 'D';
+			break;
+		case 4:
+			Character = 'E';
+			break;
+		case 5:
+			Character = 'F';
+			break;
+		default:
+			Character = 'X';
+			break;
+	}
+	HexDecode(Character);
+	Result = TranslateDecode(Character);
+
+	return Result;
+}
+
+void HexDecode(char decode)
+{
+	switch(decode)
+		{
+			case 'A':
+				Display = 0b0001000;
+				break;
+			case 'B':
+				Display = 0b0000011;
+				break;
+			case 'C':
+				Display = 0b1000110;
+				break;
+			case 'D':
+				Display = 0b0100001;
+				break;
+			case 'E':
+				Display = 0b0000110;
+				break;
+			case 'F':
+				Display = 0b0001110;
+				break;
+			default:
+				Display = 0b1000000;
+				break;
+		}
+}
+
+int TranslateDecode(char decode)
+{
+	int num;
+	switch(decode)
+	{
+		case 'A':
+			num = 0b100000;
+			break;
+		case 'B':
+			num = 0b101000;
+			break;
+		case 'C':
+			num = 0b110000;
+			break;
+		case 'D':
+			num = 0b110100;
+			break;
+		case 'E':
+			num = 0b100100;
+			break;
+		case 'F':
+			num = 0b111000;
+			break;
+		default:
+			num = 0b000000;
+			break;
+	}
+	return num;
+}
+
+void task2(void *p)
+{
+	//IOWR(HEX_0_BASE, 0, Display);
+}
+

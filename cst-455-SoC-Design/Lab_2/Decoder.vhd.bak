@@ -1,0 +1,66 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Decoder is
+port( 
+arr1 : in STD_LOGIC_VECTOR(3 downto 0);
+arr2 : in STD_LOGIC_VECTOR(3 downto 0);
+arr3 : in STD_LOGIC_VECTOR(3 downto 0);
+arr4 : in STD_LOGIC_VECTOR(3 downto 0);
+result1 : out STD_LOGIC_VECTOR(6 down to 0);
+result2 : out STD_LOGIC_VECTOR(6 down to 0);
+result3 : out STD_LOGIC_VECTOR(6 down to 0);
+result4 : out STD_LOGIC_VECTOR(6 down to 0);
+);
+end Decoder0;
+
+architecture Dec_con of Decoder is
+begin
+	process(arr1)
+	begin
+		case (arr1) is
+		when "0" => result1 <= "1000000";
+		when "1" => result1 <= "1111001";
+		when "2" => result1 <= "0100100";
+		when "3" => result1 <= "0110000";
+		when "4" => result1 <= "0011001";
+		when "5" => result1 <= "0010010";
+		when "6" => result1 <= "0000010";
+		when "7" => result1 <= "1111000";
+		when "8" => result1 <= "0000000";
+		when "9" => result1 <= "0011000";
+		when "A" => result1 <= "0001000";
+		when "B" => result1 <= "0000011";
+		when "C" => result1 <= "1000110";
+		when "D" => result1 <= "0100001";
+		when "E" => result1 <= "0000110";
+		when "F" => result1 <= "0001110";
+		when others => result1 <= "11000000";
+		end case;
+	end process
+	
+	process(arr2)
+	begin
+		case (arr2) is
+		when "0" => result2 <= "1000000";
+		when "1" => result2 <= "1111001";
+		when "2" => result2 <= "0100100";
+		when "3" => result2 <= "0110000";
+		when "4" => result2 <= "0011001";
+		when "5" => result2 <= "0010010";
+		when "6" => result2 <= "0000010";
+		when "7" => result2 <= "1111000";
+		when "8" => result2 <= "0000000";
+		when "9" => result2 <= "0011000";
+		when "A" => result2 <= "0001000";
+		when "B" => result2 <= "0000011";
+		when "C" => result2 <= "1000110";
+		when "D" => result2 <= "0100001";
+		when "E" => result2 <= "0000110";
+		when "F" => result2 <= "0001110";
+		when others => result2 <= "11000000";
+		end case;
+	end process
+	
+end Dec_con;

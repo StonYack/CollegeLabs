@@ -1,0 +1,42 @@
+/*
+ * swDriver.h
+ *
+ * Created: 1/12/2021 3:01:27 PM
+ *  Author: Ston
+ */ 
+
+
+#ifndef SWDRIVER_H_
+#define SWDRIVER_H_
+
+#define PIN_PUSHBUTTON_6_MASK  PIO_PA16
+#define PIN_PUSHBUTTON_6_PIO   PIOA
+#define PIN_PUSHBUTTON_6_ID    ID_PIOA
+#define PIN_PUSHBUTTON_6_TYPE  PIO_INPUT
+#define PIN_PUSHBUTTON_6_ATTR  (PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE)
+#define PIN_PUSHBUTTON_6_IRQn  PIOA_IRQn
+
+#define PIN_PUSHBUTTON_7_MASK  PIO_PA11
+#define PIN_PUSHBUTTON_7_PIO   PIOA
+#define PIN_PUSHBUTTON_7_ID    ID_PIOA
+#define PIN_PUSHBUTTON_7_TYPE  PIO_INPUT
+#define PIN_PUSHBUTTON_7_ATTR  (PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE)
+#define PIN_PUSHBUTTON_7_IRQn  PIOA_IRQn
+
+#define PIN_PUSHBUTTON_8_MASK  PIO_PD25
+#define PIN_PUSHBUTTON_8_PIO   PIOD
+#define PIN_PUSHBUTTON_8_ID    ID_PIOD
+#define PIN_PUSHBUTTON_8_TYPE  PIO_INPUT
+#define PIN_PUSHBUTTON_8_ATTR  (PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE)
+#define PIN_PUSHBUTTON_8_IRQn  PIOD_IRQn
+
+enum ACommand {increase, decrease};
+
+void initializeSWDriver(void);
+uint8_t readSW(void);
+void Button1(uint8_t Cur);
+void Button2(uint8_t Cur);
+void Button3(uint8_t Cur);
+
+
+#endif /* SWDRIVER_H_ */

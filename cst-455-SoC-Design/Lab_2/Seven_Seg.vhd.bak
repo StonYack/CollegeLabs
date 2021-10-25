@@ -1,0 +1,34 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+package decode is
+	function sev_seg (A:integer) return STD_LOGIC_VECTOR;
+end decode;
+
+package body decode is
+	function sev_seg (A:integer) return STD_LOGIC_VECTOR IS
+	variable result1: STD_LOGIC_VECTOR (6 downto 0);
+	begin
+		case (arr1) is
+			when x"0" => result1 <= "1000000";
+			when x"1" => result1 <= "1111001";
+			when x"2" => result1 <= "0100100";
+			when x"3" => result1 <= "0110000";
+			when x"4" => result1 <= "0011001";
+			when x"5" => result1 <= "0010010";
+			when x"6" => result1 <= "0000010";
+			when x"7" => result1 <= "1111000";
+			when x"8" => result1 <= "0000000";
+			when x"9" => result1 <= "0011000";
+			when x"A" => result1 <= "0001000";
+			when x"B" => result1 <= "0000011";
+			when x"C" => result1 <= "1000110";
+			when x"D" => result1 <= "0100001";
+			when x"E" => result1 <= "0000110";
+			when x"F" => result1 <= "0001110";
+			when others => result1 <= "1100000";
+		end case;
+	return result;
+	end sev_seg;
+end decode;

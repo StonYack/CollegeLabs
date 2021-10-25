@@ -1,0 +1,110 @@
+--library ieee;
+--use ieee.std_logic_1164.all;
+--use ieee.numeric_std.all;
+--
+--entity Decoder is
+--port( 
+--arr1 : in unsigned(3 downto 0);
+--arr2 : in unsigned(3 downto 0);
+--result1 : out unsigned(6 downto 0);
+--result2 : out unsigned(6 downto 0);
+--result3 : out unsigned(6 downto 0);
+--result4 : out unsigned(6 downto 0)
+--);
+--end Decoder;
+--
+
+--architecture Dec_con of Decoder is
+--begin
+--	process(arr1)
+--	begin
+--		case (arr1) is
+--		when x"0" => result1 <= "1000000";
+--		when x"1" => result1 <= "1111001";
+--		when x"2" => result1 <= "0100100";
+--		when x"3" => result1 <= "0110000";
+--		when x"4" => result1 <= "0011001";
+--		when x"5" => result1 <= "0010010";
+--		when x"6" => result1 <= "0000010";
+--		when x"7" => result1 <= "1111000";
+--		when x"8" => result1 <= "0000000";
+--		when x"9" => result1 <= "0011000";
+--		when x"A" => result1 <= "0001000";
+--		when x"B" => result1 <= "0000011";
+--		when x"C" => result1 <= "1000110";
+--		when x"D" => result1 <= "0100001";
+--		when x"E" => result1 <= "0000110";
+--		when x"F" => result1 <= "0001110";
+--		when others => result1 <= "1100000";
+--		end case;
+--	end process;
+--	
+--	process(arr2)
+--	begin
+--		case (arr2) is
+--		when x"0" => result2 <= "1000000";
+--		when x"1" => result2 <= "1111001";
+--		when x"2" => result2 <= "0100100";
+--		when x"3" => result2 <= "0110000";
+--		when x"4" => result2 <= "0011001";
+--		when x"5" => result2 <= "0010010";
+--		when x"6" => result2 <= "0000010";
+--		when x"7" => result2 <= "1111000";
+--		when x"8" => result2 <= "0000000";
+--		when x"9" => result2 <= "0011000";
+--		when x"A" => result2 <= "0001000";
+--		when x"B" => result2 <= "0000011";
+--		when x"C" => result2 <= "1000110";
+--		when x"D" => result2 <= "0100001";
+--		when x"E" => result2 <= "0000110";
+--		when x"F" => result2 <= "0001110";
+--		when others => result2 <= "1100000";
+--		end case;
+--	end process;
+--	
+--	process is
+--	variable add : unsigned (7 downto 0);
+--	begin
+--		add := arr2+arr1;
+--		
+--		case (add) is
+--		when x"0" => result4 <= "1000000";
+--						result3 <= "1000000";
+--		when x"1" => result4 <= "1111001";
+--						result3 <= "1000000";
+--		when x"2" => result4 <= "0100100";
+--						result3 <= "1000000";
+--		when x"3" => result4 <= "0110000";
+--						result3 <= "1000000";
+--		when x"4" => result4 <= "0011001";
+--						result3 <= "1000000";
+--		when x"5" => result4 <= "0010010";
+--						result3 <= "1000000";
+--		when x"6" => result4 <= "0000010";
+--						result3 <= "1000000";
+--		when x"7" => result4 <= "1111000";
+--						result3 <= "1000000";
+--		when x"8" => result4 <= "0000000";
+--						result3 <= "1000000";
+--		when x"9" => result4 <= "0011000";
+--						result3 <= "1000000";
+--		when x"A" => result4 <= "0001000";
+--						result3 <= "1000000";
+--		when x"B" => result4 <= "0000011";
+--						result3 <= "1000000";
+--		when x"C" => result4 <= "1000110";
+--						result3 <= "1000000";
+--		when x"D" => result4 <= "0100001";
+--						result3 <= "1000000";
+--		when x"E" => result4 <= "0000110";
+--						result3 <= "1000000";
+--		when x"F" => result4 <= "0001110";
+--						result3 <= "1000000";
+--						
+--						
+--		when others => result4 <= "1000000";
+--							result3 <= "1000000";
+--		end case;
+--	end process;
+--	
+--end Dec_con;

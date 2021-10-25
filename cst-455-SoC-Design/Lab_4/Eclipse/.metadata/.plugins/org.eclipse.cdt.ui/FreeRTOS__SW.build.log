@@ -1,0 +1,8 @@
+20:19:55 **** Incremental Build of configuration Nios II for project FreeRTOS__SW ****
+wsl make all 
+Makefile:197: /mnt/d/College/CST455/Lab_4/software/Lab4_bsp/public.mk: No such file or directory
+Makefile:405: /mnt/d/College/CST455/Lab_4/software/Lab4_bsp/mem_init.mk: No such file or directory
+make: *** No rule to make target '/mnt/d/College/CST455/Lab_4/software/Lab4_bsp/mem_init.mk'.  Stop.
+
+20:19:56 Build Finished (took 578ms)
+

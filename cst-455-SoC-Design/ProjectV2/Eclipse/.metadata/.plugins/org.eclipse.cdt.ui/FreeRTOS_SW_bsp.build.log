@@ -1,0 +1,6 @@
+21:55:37 **** Clean-only build of configuration Nios II for project FreeRTOS_SW_bsp ****
+wsl make clean 
+[BSP clean complete]
+
+21:55:38 Build Finished (took 387ms)
+

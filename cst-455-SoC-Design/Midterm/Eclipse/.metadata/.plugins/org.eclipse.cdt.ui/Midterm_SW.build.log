@@ -1,0 +1,10 @@
+12:59:27 **** Incremental Build of configuration Nios II for project Midterm_SW ****
+wsl make all 
+touch Midterm_SW.elf.srec
+Info: Building /mnt/d/College/CST455/Midterm/software/Midterm_SW_bsp/
+make --no-print-directory -C /mnt/d/College/CST455/Midterm/software/Midterm_SW_bsp/
+[BSP build complete]
+[Midterm_SW build complete]
+
+12:59:28 Build Finished (took 792ms)
+

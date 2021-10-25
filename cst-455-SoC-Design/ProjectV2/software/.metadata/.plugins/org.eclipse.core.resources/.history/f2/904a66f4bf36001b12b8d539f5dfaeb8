@@ -1,0 +1,188 @@
+#include <linux/kernel.h>
+#include <linux/module.h>	/* Specifically, a module */
+#include <linux/sched.h>
+
+
+#include <stdio.h>
+#include <string.h>
+#include <sys/mman.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include "socal/socal.h"
+#include "socal/hps.h"
+#include "socal/alt_gpio.h"
+#include "hwlib.h"
+#include "hps_0.h"
+
+
+#define HW_REGS_BASE (ALT_STM_OFST)
+#define HW_REGS_SPAN (0x04000000)
+#define HW_REGS_MASK (HW_REGS_SPAN - 1)
+
+int Search(FILE *file, char Braille);
+//void ServoController(int value);
+
+int main()
+{
+	int fd = 0;
+	void * virtual_base;
+	
+	/*void * h2p_lw_servo_addr;
+	void * h2p_lw_piezo_addr;
+	void * h2p_lw_TM_addr;
+	void * TM_control_addr;
+	void * TM_end_of_int_addr;
+	void * TM_int_status_addr;
+	void * TM_load_value_addr; */
+	
+	FILE *Database;
+	char Braille;
+	int Translate;
+	
+	if((fd = open("/dev/mem", (O_RDWR | O_SYNC))) == -1)
+	{
+		printf("ERROR: could not open \"/dev/mem\"...\n");
+		return (1);
+	}
+
+	virtual_base = mmap(NULL, HW_REGS_SPAN, (PROT_READ | PROT_WRITE), 
+						MAP_SHARED, fd, HW_REGS_BASE);
+
+	if(virtual_base == MAP_FAILED)
+	{
+		printf("ERROR: mmap() failed...\n");
+		close(fd);
+		return(1);
+	}
+
+	/*h2p_lw_servo_addr = virtual_base +
+						((unsigned long) (ALT_LWFPGASLVS_OFST + SERVO_CON_0_BASE)
+						& (unsigned long) (HW_REGS_MASK));
+	h2p_lw_piezo_addr = virtual_base +
+						((unsigned long) (ALT_LWFPGASLVS_OFST + PIEZO_CON_0_BASE)
+						& (unsigned long) (HW_REGS_MASK));					
+	
+	// Timer Setup
+	// Uses HPS Timer 2
+	h2p_lw_TM_addr = virtual_base +
+						((unsigned long) (ALT_LWFPGASLVS_OFST + 0xFFD00000)
+						& (unsigned long) (HW_REGS_MASK));
+	TM_control_addr = virtual_base +
+						((unsigned long) (ALT_LWFPGASLVS_OFST + 0xFFD00008)
+						& (unsigned long) (HW_REGS_MASK));	
+	TM_end_of_int_addr = virtual_base +
+						((unsigned long) (ALT_LWFPGASLVS_OFST + 0xFFD0000C)
+						& (unsigned long) (HW_REGS_MASK));	
+	TM_int_status_addr = virtual_base +
+						((unsigned long) (ALT_LWFPGASLVS_OFST + 0xFFD00010)
+						& (unsigned long) (HW_REGS_MASK));	
+	TM_load_value_addr = virtual_base +
+						((unsigned long) (ALT_LWFPGASLVS_OFST + 0xFFD00000)
+						& (unsigned long) (HW_REGS_MASK));						
+	//Stop Timer
+	*(uint32_t *) TM_control_addr = 0b010; */
+	int iteration = 0;
+
+	while(iteration < 4)
+	{
+		printf("Enter one character: ");
+		scanf(" %c", &Braille);	// Grab character to be Translated
+		
+		//Access file for translation
+		if((Database = fopen("Database.txt", "r")) == NULL) 
+		{
+			printf("ERROR: Could not open database");
+			return(1);
+		}
+
+		//Search file for translation
+		Translate = Search(Database, tolower(Braille));
+
+		// close file
+		fclose(Database);
+
+		if (Translate == 0)
+		{
+			printf("ERROR: Invalid input");
+		}
+		else
+		{
+			printf("%d is the character \n", Translate);
+
+
+			//ServoController(Translate);
+			/**(uint32_t *) TM_load_value_addr = 37500; // 1.5ms
+			*(uint32_t *) TM_control_addr = 0b111; //start the timer
+			while(~(*(uint32_t *) TM_end_of_int_addr))
+			{
+				*(uint32_t *) h2p_lw_servo_addr = Translate;	//Actuate motors until interrupt hit (1.5ms)
+			}
+			
+			*(uint32_t *) TM_control_addr = 0b010; //Clear the timer
+			usleep(100 * 30000);
+			*(uint32_t *) h2p_lw_piezo_addr = 1;
+			usleep(100 * 1000);
+			*(uint32_t *) h2p_lw_piezo_addr = 0;
+			
+			*(uint32_t *) TM_load_value_addr = 25000; // 1ms
+			*(uint32_t *) TM_control_addr = 0b111; //start the timer
+			while(~(*(uint32_t *) TM_end_of_int_addr))
+			{
+				*(uint32_t *) h2p_lw_servo_addr = Translate;	//Actuate motors until interrupt hit (1.5ms)
+			}
+			*(uint32_t *) TM_control_addr = 0b010; //Clear the timer */
+		}
+		iteration++;
+	}  // while		
+	return 0;
+}
+
+int Search(FILE *file, char Braille)
+{
+	char temp[256];
+	int result = 0;
+
+	while (fgets(temp, 256, file) != NULL)
+	{
+		if (temp[0] == Braille)
+		{
+			for (int i = 0; temp[i] != NULL; i++)
+			{
+				if ((temp[i] == '0') || (temp[i] == '1'))
+				{
+					result <<= 1;
+					if (temp[i] == '1')
+					{
+						result += 1;
+					}
+				}
+			}
+
+		}
+	}
+	return result;
+}
+/*
+void ServoController(int value)
+{
+	*(uint32_t *) TM_load_value_addr = 37500; // 1.5ms
+	*(uint32_t *) TM_control_addr = 0b111; //start the timer
+	while(~(*(uint32_t *) TM_int_status_addr))
+	{
+		*(uint32_t *) h2p_lw_servo_addr = value;	//Actuate motors until interrupt hit (1.5ms)
+	}
+	
+	*(uint32_t *) TM_control_addr = 0b010; //Clear the timer
+	usleep(100 * 30000);
+	*(uint32_t *) h2p_lw_piezo_addr = 1;
+	usleep(100 * 1000);
+	*(uint32_t *) h2p_lw_piezo_addr = 0;
+	
+	*(uint32_t *) TM_load_value_addr = 25000; // 1ms
+	*(uint32_t *) TM_control_addr = 0b111; //start the timer
+	while(~(*(uint32_t *) TM_int_status_addr))
+	{
+		*(uint32_t *) h2p_lw_servo_addr = value;	//Actuate motors until interrupt hit (1.5ms)
+	}
+	*(uint32_t *) TM_control_addr = 0b010; //Clear the timer
+}*/

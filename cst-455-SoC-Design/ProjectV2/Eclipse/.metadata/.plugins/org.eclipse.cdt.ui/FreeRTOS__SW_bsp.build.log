@@ -1,0 +1,6 @@
+20:18:59 **** Incremental Build of configuration Nios II for project FreeRTOS__SW_bsp ****
+wsl make all 
+[BSP build complete]
+
+20:19:00 Build Finished (took 473ms)
+

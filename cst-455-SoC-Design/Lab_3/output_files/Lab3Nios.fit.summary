@@ -1,0 +1,20 @@
+Fitter Status : Successful - Wed Oct 14 16:20:47 2020
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : Lab3Nios
+Top-level Entity Name : Lab3Nios
+Family : Cyclone V
+Device : 5CSEMA5F31C6
+Timing Models : Final
+Logic utilization (in ALMs) : 1,298 / 32,070 ( 4 % )
+Total registers : 1980
+Total pins : 32 / 457 ( 7 % )
+Total virtual pins : 0
+Total block memory bits : 95,552 / 4,065,280 ( 2 % )
+Total RAM Blocks : 19 / 397 ( 5 % )
+Total DSP Blocks : 3 / 87 ( 3 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )

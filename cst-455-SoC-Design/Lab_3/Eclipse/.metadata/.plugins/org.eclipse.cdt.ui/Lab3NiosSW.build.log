@@ -1,0 +1,10 @@
+14:30:47 **** Incremental Build of configuration Nios II for project Lab3NiosSW ****
+wsl make all 
+touch Lab3NiosSW.elf.srec
+Info: Building /mnt/d/College/CST455/Lab_3/software/Lab3NiosSW_bsp/
+make --no-print-directory -C /mnt/d/College/CST455/Lab_3/software/Lab3NiosSW_bsp/
+[BSP build complete]
+[Lab3NiosSW build complete]
+
+14:30:48 Build Finished (took 566ms)
+

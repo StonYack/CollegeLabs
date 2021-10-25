@@ -1,0 +1,29 @@
+
+#include <stdio.h>
+#include "sys/alt_irq.h"
+#include "system.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+void task1(void *p);
+//void task2(void *p);
+
+int main()
+{
+  xTaskCreate(task1, "task1", 512, NULL, 2, NULL);
+  //xTaskCreate(task2, "task2", 512, NULL, 2, NULL);
+
+  vTaskStartScheduler();
+
+  return 0;
+}
+
+void task1(void *p)
+{
+	while(1)
+	{
+		printf("Hello World");
+		vTaskDelay(5000);
+	}
+}
+

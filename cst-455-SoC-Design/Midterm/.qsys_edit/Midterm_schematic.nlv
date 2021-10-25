@@ -1,0 +1,43 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst Midterm.Hex_0 -pg 1 -lvl 4 -y 500
+preplace inst Midterm.sys_clk -pg 1 -lvl 3 -y 80
+preplace inst Midterm.Hex_1 -pg 1 -lvl 4 -y 380
+preplace inst Midterm.Hex_2 -pg 1 -lvl 4 -y 1280
+preplace inst Midterm.clk_0 -pg 1 -lvl 1 -y 340
+preplace inst Midterm.Hex_3 -pg 1 -lvl 4 -y 680
+preplace inst Midterm.sdram -pg 1 -lvl 4 -y 70
+preplace inst Midterm.clock -pg 1 -lvl 2 -y 530
+preplace inst Midterm.Midterm.cpu -pg 1
+preplace inst Midterm.Hex_4 -pg 1 -lvl 4 -y 780
+preplace inst Midterm.Hex_5 -pg 1 -lvl 4 -y 880
+preplace inst Midterm.Leds -pg 1 -lvl 4 -y 1080
+preplace inst Midterm.Midterm.reset_bridge -pg 1
+preplace inst Midterm.Midterm -pg 1 -lvl 3 -y 230
+preplace inst Midterm -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst Midterm.clock.sys_pll -pg 1
+preplace inst Midterm.Switches -pg 1 -lvl 4 -y 1180
+preplace inst Midterm.Keys -pg 1 -lvl 4 -y 980
+preplace inst Midterm.jtag_uart_0 -pg 1 -lvl 4 -y 280
+preplace inst Midterm.clock.reset_from_locked -pg 1
+preplace inst Midterm.Midterm.clock_bridge -pg 1
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Midterm.leds,(SLAVE)Leds.conduit_end) 1 0 4 NJ 1130 NJ 1130 NJ 1130 NJ
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Midterm.sw,(SLAVE)Switches.conduit_end) 1 0 4 NJ 1230 NJ 1230 NJ 1230 NJ
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Midterm.hex_5,(SLAVE)Hex_5.conduit_end) 1 0 4 NJ 930 NJ 930 NJ 930 NJ
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Midterm.hex_4,(SLAVE)Hex_4.conduit_end) 1 0 4 NJ 830 NJ 830 NJ 830 NJ
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Hex_2.conduit_end,(SLAVE)Midterm.hex_2) 1 0 4 NJ 1330 NJ 1330 NJ 1330 NJ
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Midterm.sdram_wire,(SLAVE)sdram.wire) 1 0 4 NJ 50 NJ 50 NJ 50 NJ
+preplace netloc INTERCONNECT<net_container>Midterm</net_container>(SLAVE)Midterm.debug_mem_slave,(SLAVE)Hex_2.avalon_slave_0,(SLAVE)sdram.s1,(SLAVE)Hex_5.avalon_slave_0,(SLAVE)Hex_0.avalon_slave_0,(MASTER)Midterm.instruction_master,(SLAVE)sys_clk.s1,(SLAVE)Hex_1.avalon_slave_0,(SLAVE)Hex_3.avalon_slave_0,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)Keys.avalon_slave_0,(SLAVE)Leds.avalon_slave_0,(MASTER)Midterm.data_master,(SLAVE)Hex_4.avalon_slave_0,(SLAVE)Switches.avalon_slave_0) 1 2 2 690 30 1130
+preplace netloc EXPORT<net_container>Midterm</net_container>(MASTER)Midterm.sdram_clk,(MASTER)clock.sdram_clk) 1 2 3 NJ 490 NJ 490 NJ
+preplace netloc POINT_TO_POINT<net_container>Midterm</net_container>(MASTER)clk_0.clk,(SLAVE)clock.ref_clk) 1 1 1 310
+preplace netloc POINT_TO_POINT<net_container>Midterm</net_container>(SLAVE)clk_0.clk_in_reset,(MASTER)Midterm.debug_reset_request) 1 0 4 110 430 NJ 430 NJ 450 1090
+preplace netloc FAN_OUT<net_container>Midterm</net_container>(MASTER)Midterm.irq,(SLAVE)jtag_uart_0.irq,(SLAVE)sys_clk.irq) 1 2 2 710 70 1110
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Midterm.hex_1,(SLAVE)Hex_1.conduit_end) 1 0 4 NJ 410 NJ 410 NJ 430 NJ
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Keys.conduit_end,(SLAVE)Midterm.keys) 1 0 4 NJ 1030 NJ 1030 NJ 1030 NJ
+preplace netloc FAN_OUT<net_container>Midterm</net_container>(SLAVE)sys_clk.clk,(SLAVE)Hex_1.clock,(SLAVE)Hex_3.clock,(SLAVE)Hex_2.clock,(SLAVE)Leds.clock,(SLAVE)Switches.clock,(SLAVE)Hex_0.clock,(SLAVE)jtag_uart_0.clk,(SLAVE)Midterm.clk,(SLAVE)Hex_4.clock,(SLAVE)Keys.clock,(SLAVE)Hex_5.clock,(MASTER)clock.sys_clk,(SLAVE)sdram.clk) 1 2 2 650 580 1150
+preplace netloc FAN_OUT<net_container>Midterm</net_container>(SLAVE)Keys.reset,(SLAVE)jtag_uart_0.reset,(SLAVE)clock.ref_reset,(SLAVE)Hex_0.reset,(SLAVE)Leds.reset,(SLAVE)Hex_4.reset,(SLAVE)sys_clk.reset,(SLAVE)Hex_1.reset,(SLAVE)Hex_3.reset,(SLAVE)Hex_2.reset,(SLAVE)Midterm.reset,(SLAVE)sdram.reset,(MASTER)clk_0.clk_reset,(SLAVE)Hex_5.reset,(SLAVE)Switches.reset) 1 1 3 330 370 670 370 1170
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)clk_0.clk_in,(SLAVE)Midterm.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Hex_3.conduit_end,(SLAVE)Midterm.hex_3) 1 0 4 NJ 730 NJ 730 NJ 730 NJ
+preplace netloc EXPORT<net_container>Midterm</net_container>(SLAVE)Midterm.hex_1_1,(SLAVE)Hex_0.conduit_end) 1 0 4 NJ 470 NJ 470 NJ 470 NJ
+levelinfo -pg 1 0 80 1450
+levelinfo -hier Midterm 90 140 470 850 1220 1360

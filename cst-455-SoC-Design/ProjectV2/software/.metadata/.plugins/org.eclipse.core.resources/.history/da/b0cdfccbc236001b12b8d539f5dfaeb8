@@ -1,0 +1,95 @@
+
+#include <stdio.h>
+#include "sys/alt_irq.h"
+#include "system.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+void task(void *p);
+
+
+int main()
+{
+  xTaskCreate(task, "task", 512, NULL, 2, NULL);
+  vTaskStartScheduler();
+
+  return 0;
+}
+
+void task(void *p)
+{
+	int Translate
+	while(1)
+	{
+		Translate = Switch();
+		printf(Translate);
+		vTaskDelay(5000);
+	}
+}
+
+int Switch()
+{
+	int SW = IORD(SW_0_BASE, 0);
+	char Character;
+	int Result;
+
+	switch(SW)
+	{
+		case 0:
+			Character = 'A';
+			break;
+		case 1:
+			Character = 'B';
+			break;
+		case 2:
+			Character = 'C';
+			break;
+		case 3:
+			Character = 'D';
+			break;
+		case 4:
+			Character = 'E';
+			break;
+		case 5:
+			Character = 'F';
+			break;
+		default:
+			Character = 'X';
+			break;
+	}
+
+	Result = Decode(Character);
+
+	return Result;
+}
+
+int Decode(char decode)
+{
+	int num;
+	switch(SW)
+	{
+		case 'A':
+			num = 0b100000;
+			break;
+		case 'B':
+			num = 0b101000;
+			break;
+		case 'C':
+			num = 0b110000;
+			break;
+		case 'D':
+			num = 0b110100;
+			break;
+		case 'E':
+			num = 0b100100;
+			break;
+		case 'F':
+			num = 0b111000;
+			break;
+		default:
+			num = 0b000000;
+			break;
+	}
+	return num;
+}
+

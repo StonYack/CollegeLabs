@@ -1,0 +1,175 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate D:\College\CST455\Midterm\Midterm.qsys --block-symbol-file --output-directory=D:\College\CST455\Midterm\Midterm --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading Midterm/Midterm.qsys
+Progress: Reading input file
+Progress: Adding Hex_0 [My_Hex 1.0]
+Progress: Parameterizing module Hex_0
+Progress: Adding Hex_1 [My_Hex 1.0]
+Progress: Parameterizing module Hex_1
+Progress: Adding Hex_2 [My_Hex 1.0]
+Progress: Parameterizing module Hex_2
+Progress: Adding Hex_3 [My_Hex 1.0]
+Progress: Parameterizing module Hex_3
+Progress: Adding Hex_4 [My_Hex 1.0]
+Progress: Parameterizing module Hex_4
+Progress: Adding Hex_5 [My_Hex 1.0]
+Progress: Parameterizing module Hex_5
+Progress: Adding Keys [My_Key 1.0]
+Progress: Parameterizing module Keys
+Progress: Adding Leds [My_Leds 1.0]
+Progress: Parameterizing module Leds
+Progress: Adding Midterm [altera_nios2_gen2 20.1]
+Progress: Parameterizing module Midterm
+Progress: Adding Switches [Custom_SW 1.0]
+Progress: Parameterizing module Switches
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding clock [altera_up_avalon_sys_sdram_pll 18.0]
+Progress: Parameterizing module clock
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 20.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Adding sdram [altera_avalon_new_sdram_controller 20.1]
+Progress: Parameterizing module sdram
+Progress: Adding sys_clk [altera_avalon_timer 20.1]
+Progress: Parameterizing module sys_clk
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: Midterm.clock: Refclk Freq: 50.0
+Info: Midterm.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: Midterm.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate D:\College\CST455\Midterm\Midterm.qsys --synthesis=VERILOG --output-directory=D:\College\CST455\Midterm\Midterm\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading Midterm/Midterm.qsys
+Progress: Reading input file
+Progress: Adding Hex_0 [My_Hex 1.0]
+Progress: Parameterizing module Hex_0
+Progress: Adding Hex_1 [My_Hex 1.0]
+Progress: Parameterizing module Hex_1
+Progress: Adding Hex_2 [My_Hex 1.0]
+Progress: Parameterizing module Hex_2
+Progress: Adding Hex_3 [My_Hex 1.0]
+Progress: Parameterizing module Hex_3
+Progress: Adding Hex_4 [My_Hex 1.0]
+Progress: Parameterizing module Hex_4
+Progress: Adding Hex_5 [My_Hex 1.0]
+Progress: Parameterizing module Hex_5
+Progress: Adding Keys [My_Key 1.0]
+Progress: Parameterizing module Keys
+Progress: Adding Leds [My_Leds 1.0]
+Progress: Parameterizing module Leds
+Progress: Adding Midterm [altera_nios2_gen2 20.1]
+Progress: Parameterizing module Midterm
+Progress: Adding Switches [Custom_SW 1.0]
+Progress: Parameterizing module Switches
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding clock [altera_up_avalon_sys_sdram_pll 18.0]
+Progress: Parameterizing module clock
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 20.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Adding sdram [altera_avalon_new_sdram_controller 20.1]
+Progress: Parameterizing module sdram
+Progress: Adding sys_clk [altera_avalon_timer 20.1]
+Progress: Parameterizing module sys_clk
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: Midterm.clock: Refclk Freq: 50.0
+Info: Midterm.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: Midterm.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: Midterm: Generating Midterm "Midterm" for QUARTUS_SYNTH
+Info: Hex_0: "Midterm" instantiated My_Hex "Hex_0"
+Info: Keys: "Midterm" instantiated My_Key "Keys"
+Info: Leds: "Midterm" instantiated My_Leds "Leds"
+Info: Midterm: "Midterm" instantiated altera_nios2_gen2 "Midterm"
+Info: Switches: "Midterm" instantiated Custom_SW "Switches"
+Info: clock: "Midterm" instantiated altera_up_avalon_sys_sdram_pll "clock"
+Info: jtag_uart_0: Starting RTL generation for module 'Midterm_jtag_uart_0'
+Info: jtag_uart_0:   Generation command is [exec D:/college/quartus/lite/quartus/bin64/perl/bin/perl.exe -I D:/college/quartus/lite/quartus/bin64/perl/lib -I D:/college/quartus/lite/quartus/sopc_builder/bin/europa -I D:/college/quartus/lite/quartus/sopc_builder/bin -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/common -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=Midterm_jtag_uart_0 --dir=C:/Users/Ston/AppData/Local/Temp/alt8556_8715185697783986188.dir/0006_jtag_uart_0_gen/ --quartus_dir=D:/college/quartus/lite/quartus --verilog --config=C:/Users/Ston/AppData/Local/Temp/alt8556_8715185697783986188.dir/0006_jtag_uart_0_gen//Midterm_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart_0: Done RTL generation for module 'Midterm_jtag_uart_0'
+Info: jtag_uart_0: "Midterm" instantiated altera_avalon_jtag_uart "jtag_uart_0"
+Info: sdram: Starting RTL generation for module 'Midterm_sdram'
+Info: sdram:   Generation command is [exec D:/college/quartus/lite/quartus/bin64/perl/bin/perl.exe -I D:/college/quartus/lite/quartus/bin64/perl/lib -I D:/college/quartus/lite/quartus/sopc_builder/bin/europa -I D:/college/quartus/lite/quartus/sopc_builder/bin -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/common -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=Midterm_sdram --dir=C:/Users/Ston/AppData/Local/Temp/alt8556_8715185697783986188.dir/0007_sdram_gen/ --quartus_dir=D:/college/quartus/lite/quartus --verilog --config=C:/Users/Ston/AppData/Local/Temp/alt8556_8715185697783986188.dir/0007_sdram_gen//Midterm_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'Midterm_sdram'
+Info: sdram: "Midterm" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: sys_clk: Starting RTL generation for module 'Midterm_sys_clk'
+Info: sys_clk:   Generation command is [exec D:/College/Quartus/Lite/quartus/bin64//perl/bin/perl.exe -I D:/College/Quartus/Lite/quartus/bin64//perl/lib -I D:/college/quartus/lite/quartus/sopc_builder/bin/europa -I D:/college/quartus/lite/quartus/sopc_builder/bin -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/common -I D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- D:/college/quartus/lite/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=Midterm_sys_clk --dir=C:/Users/Ston/AppData/Local/Temp/alt8556_8715185697783986188.dir/0008_sys_clk_gen/ --quartus_dir=D:/college/quartus/lite/quartus --verilog --config=C:/Users/Ston/AppData/Local/Temp/alt8556_8715185697783986188.dir/0008_sys_clk_gen//Midterm_sys_clk_component_configuration.pl  --do_build_sim=0  ]
+Info: sys_clk: Done RTL generation for module 'Midterm_sys_clk'
+Info: sys_clk: "Midterm" instantiated altera_avalon_timer "sys_clk"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_011: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_012: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "Midterm" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "Midterm" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "Midterm" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'Midterm_Midterm_cpu'
+Info: cpu:   Generation command is [exec D:/College/Quartus/Lite/quartus/bin64//perl/bin/perl.exe -I D:/College/Quartus/Lite/quartus/bin64//perl/lib -I D:/college/quartus/lite/quartus/sopc_builder/bin/europa -I D:/college/quartus/lite/quartus/sopc_builder/bin -I D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- D:/college/quartus/lite/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=Midterm_Midterm_cpu --dir=C:/Users/Ston/AppData/Local/Temp/alt8556_8715185697783986188.dir/0011_cpu_gen/ --quartus_bindir=D:/College/Quartus/Lite/quartus/bin64/ --verilog --config=C:/Users/Ston/AppData/Local/Temp/alt8556_8715185697783986188.dir/0011_cpu_gen//Midterm_Midterm_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2020.10.21 11:57:03 (*) Starting Nios II generation
+Info: cpu: # 2020.10.21 11:57:03 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2020.10.21 11:57:03 (*)   Creating all objects for CPU
+Info: cpu: # 2020.10.21 11:57:03 (*)     Testbench
+Info: cpu: # 2020.10.21 11:57:03 (*)     Instruction decoding
+Info: cpu: # 2020.10.21 11:57:03 (*)       Instruction fields
+Info: cpu: # 2020.10.21 11:57:03 (*)       Instruction decodes
+Info: cpu: # 2020.10.21 11:57:04 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2020.10.21 11:57:04 (*)       Instruction controls
+Info: cpu: # 2020.10.21 11:57:04 (*)     Pipeline frontend
+Info: cpu: # 2020.10.21 11:57:04 (*)     Pipeline backend
+Info: cpu: # 2020.10.21 11:57:06 (*)   Generating RTL from CPU objects
+Info: cpu: # 2020.10.21 11:57:06 (*)   Creating plain-text RTL
+Info: cpu: # 2020.10.21 11:57:07 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'Midterm_Midterm_cpu'
+Info: cpu: "Midterm" instantiated altera_nios2_gen2_unit "cpu"
+Info: sys_pll: "clock" instantiated altera_pll "sys_pll"
+Info: reset_from_locked: "clock" instantiated altera_up_avalon_reset_from_locked_signal "reset_from_locked"
+Info: Midterm_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "Midterm_data_master_translator"
+Info: jtag_uart_0_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_0_avalon_jtag_slave_translator"
+Info: Midterm_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "Midterm_data_master_agent"
+Info: jtag_uart_0_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_0_avalon_jtag_slave_agent"
+Info: jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_012: "mm_interconnect_0" instantiated altera_merlin_router "router_012"
+Info: router_013: "mm_interconnect_0" instantiated altera_merlin_router "router_013"
+Info: Midterm_data_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "Midterm_data_master_limiter"
+Info: Reusing file D:/College/CST455/Midterm/Midterm/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: sdram_s1_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sdram_s1_burst_adapter"
+Info: Reusing file D:/College/CST455/Midterm/Midterm/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_010: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_010"
+Info: Reusing file D:/College/CST455/Midterm/Midterm/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_010: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_010"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file D:/College/CST455/Midterm/Midterm/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file D:/College/CST455/Midterm/Midterm/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: sdram_s1_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sdram_s1_rsp_width_adapter"
+Info: Reusing file D:/College/CST455/Midterm/Midterm/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file D:/College/CST455/Midterm/Midterm/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_011: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_011"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_011" instantiated error_adapter "error_adapter_0"
+Info: Midterm: Done "Midterm" with 41 modules, 70 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

@@ -1,0 +1,177 @@
+#include <io.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+#include "sys/alt_irq.h"
+#include "system.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "sys/alt_stdio.h"
+#include "altera_avalon_timer_regs.h"
+
+
+void task1(void *p);
+void task2(void *p);
+
+int Switch();
+void HexDecode(char decode);
+int TranslateDecode(char decode);
+void ServoControl(int value);
+
+char Display = 'X';
+int ON = 0;
+int Overflows = 0;
+
+void timer_0_ISR(void *context, alt_32 id)
+{
+	if(Overflows == 3)
+	{
+		Overflows = 0;
+		IOWR(PIEZO_0_BASE, 0, 0);
+		//ON = !ON;
+	}
+	else
+	{
+		IOWR(PIEZO_0_BASE, 0, 1);
+		Overflows++;
+	}
+
+   // clear irq
+   IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE, 0);
+}
+
+int main()
+{
+  IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE, ALTERA_AVALON_TIMER_CONTROL_CONT_MSK | ALTERA_AVALON_TIMER_CONTROL_START_MSK | ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);
+
+  IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE, 0);    // Clear IRQ status
+  //IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_0_BASE, 0x1); //0x28
+  //IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_0_BASE, 0x1);	//0x3
+  alt_irq_register(TIMER_0_IRQ, 0, timer_0_ISR);
+
+  xTaskCreate(task1, "task1", 512, NULL, 2, NULL);
+  xTaskCreate(task2, "task2", 512, NULL, 2, NULL);
+  vTaskStartScheduler();
+
+  return 0;
+}
+
+void task1(void *p)
+{
+	while(1)
+	{
+		int Translate = Switch();
+		ServoControl(Translate);
+
+		//vTaskDelay(5000);
+	}
+}
+
+int Switch()
+{
+	int SW = IORD(SW_0_BASE, 0);
+	char Character;
+	int Result;
+
+	switch(SW)
+	{
+		case 0:
+			Character = 'A';
+			break;
+		case 1:
+			Character = 'B';
+			break;
+		case 2:
+			Character = 'C';
+			break;
+		case 3:
+			Character = 'D';
+			break;
+		case 4:
+			Character = 'E';
+			break;
+		case 5:
+			Character = 'F';
+			break;
+		default:
+			Character = 'X';
+			break;
+	}
+	HexDecode(Character);
+	Result = TranslateDecode(Character);
+
+	return Result;
+}
+
+void HexDecode(char decode)
+{
+	switch(decode)
+		{
+			case 'A':
+				Display = 0b0001000;
+				break;
+			case 'B':
+				Display = 0b0000011;
+				break;
+			case 'C':
+				Display = 0b1000110;
+				break;
+			case 'D':
+				Display = 0b0100001;
+				break;
+			case 'E':
+				Display = 0b0000110;
+				break;
+			case 'F':
+				Display = 0b0001110;
+				break;
+			default:
+				Display = 0b1000000;
+				break;
+		}
+}
+
+int TranslateDecode(char decode)
+{
+	int num;
+	switch(decode)
+	{
+		case 'A':
+			num = 0b100000;
+			break;
+		case 'B':
+			num = 0b101000;
+			break;
+		case 'C':
+			num = 0b110000;
+			break;
+		case 'D':
+			num = 0b110100;
+			break;
+		case 'E':
+			num = 0b100100;
+			break;
+		case 'F':
+			num = 0b111000;
+			break;
+		default:
+			num = 0b000000;
+			break;
+	}
+	return num;
+}
+
+void ServoControl(int value)
+{
+	IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE, 0x7);
+}
+
+void task2(void *p)
+{
+	while(1)
+	{
+		IOWR(HEX_0_BASE, 0, Display);
+	}
+}
+
+

@@ -1,0 +1,56 @@
+
+#include <stdio.h>
+#include "sys/alt_irq.h"
+#include "system.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+void task(void *p);
+
+
+int main()
+{
+  xTaskCreate(task, "task", 512, NULL, 2, NULL);
+  vTaskStartScheduler();
+
+  return 0;
+}
+
+void task(void *p)
+{
+	while(1)
+	{
+		printf("Hello World\n");
+		vTaskDelay(5000);
+	}
+}
+
+char Switch()
+{
+	int SW = IORD(SW_0_BASE, 0);
+	char Result;
+
+	switch(SW)
+	{
+		case 0:
+			Result = 'A';
+			break;
+		case 1:
+			Result = 'B';
+			break;
+		case 2:
+			Result = 'C';
+			break;
+		case 3:
+			Result = 'D';
+			break;
+		case 4:
+			Result = 'E';
+			break;
+		case 5:
+			Result = 'F';
+			break;
+	}
+
+}
+
